@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task List LifeIQ</title>
+  <link rel="stylesheet" href="bulma.css">
+  <link rel="stylesheet" href="web-fonts-with-css\css\fontawesome-all.css">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="section">
+    <div class="column">
+      <div class="card" id="main">
+        <div class="card-content">
+          <span class="card-title is-size-3">Task List</span>
+          <div class="row" id="form-row">
+            <form id="task-form">
+              <div class="input-field is-12">
+                <input type="text" id="task" name="task" class="input">
+                <label for="task">New Task</label>
+              </div>
+              <input type="submit" value="Add Task" class="button is-primary">
+            </form>
+            <hr>
+          <div class="row">
+            <div class="card-action">
+              <h5 id="task-title">Tasks</h5>
+              <div class="input-field is-12">
+                  <input type="text" id="filter" name="filter" class="input">
+                  <label for="task">Filter Tasks</label>
+              </div>
+              <ul class="collection">
+                <a href="#" class="clear-tasks button has-text-primary has-background-black">Clear Tasks</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="section tile is-ancestor is-vertical">
+      <div class="column level tile is-parent box">
+        
+        <div class="tile is-child is-12">
+            <h1 class="is-primary title is-spaced">LifeIQ</h1>
+          <h2 class="subtitle tile is-child box">Styling by <span id="bulma-link" class="button has-background-info">Bulma.io</span>
+          </h2>
+          <div class="tile is-child box">
+              <h2 class="subtitle">Icons by FontAwesome 5!</h2>
+      
+              <span class="icon has-text-info is-large">
+                  <i class="fas fa-info-circle fa-3x"></i>
+                </span>
+                <span class="icon has-text-success">
+                  <i class="fas fa-check-square fa-2x"></i>
+                </span>
+                <span class="icon has-text-warning">
+                  <i class="fas fa-exclamation-triangle fa-lg"></i>
+                </span>
+                <span class="icon has-text-danger">
+                  <i class="fas fa-ban"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
