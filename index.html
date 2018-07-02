@@ -1,74 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Task List LifeIQ</title>
-  <link rel="stylesheet" href="bulma.css">
-  <link rel="stylesheet" href="web-fonts-with-css\css\fontawesome-all.css">
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>JavaScript Patterns</title>
 </head>
 
 <body>
-  <div class="section">
-    <div class="column">
-      <div class="card" id="main">
-        <div class="card-content">
-          <span class="card-title is-size-3">Task List</span>
-          <div class="row" id="form-row">
-            <form id="task-form">
-              <div class="input-field is-12">
-                <input type="text" id="task" name="task" class="input">
-                <label for="task">New Task</label>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto text-center">
+        <div class="row m-6 bg-dark text-light">
+          <h4 id="lesson-subheading">Module Pattern</h4>
+        </div>
+        <h1 id="lesson-heading" class="m-4">Module Pattern</h1>
+
+        <div id="insertion-point"></div>
+        <form>
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label for="add-user"></label>
+                <span class="input-group-text">Add New User</span>
+                <input type="text" class="form-control" id="add-user" aria-describedby="Add new user" placeholder="Add user name...">
               </div>
-              <input type="submit" value="Add Task" class="button is-primary">
-            </form>
-            <hr>
-          <div class="row">
-            <div class="card-action">
-              <h5 id="task-title">Tasks</h5>
-              <div class="input-field is-12">
-                  <input type="text" id="filter" name="filter" class="input">
-                  <label for="task">Filter Tasks</label>
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Add</button>
               </div>
-              <ul class="collection">
-                <a href="#" class="clear-tasks button has-text-primary has-background-black">Clear Tasks</a>
-              </ul>
             </div>
           </div>
-        </div>
-        </div>
-      </div>
-    </div>
-    <div id="footer" class="section tile is-ancestor is-vertical">
-      <div class="column level tile is-parent box">
-        
-        <div class="tile is-child is-12">
-            <h1 class="is-primary title is-spaced">LifeIQ</h1>
-          <h2 class="subtitle tile is-child box">Styling by <span id="bulma-link" class="button has-background-info">Bulma.io</span>
-          </h2>
-          <div class="tile is-child box">
-              <h2 class="subtitle">Icons by FontAwesome 5!</h2>
-      
-              <span class="icon has-text-info is-large">
-                  <i class="fas fa-info-circle fa-3x"></i>
+
+        </form>
+        <br>
+        <br>
+        <form>
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="from-user" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    From
+                  </button>
+                  <div id="dropdown-from" class="dropdown-menu" aria-labelledby="from-user">
+                  </div>
                 </span>
-                <span class="icon has-text-success">
-                  <i class="fas fa-check-square fa-2x"></i>
+                <label for="message"></label>
+                <input type="text" class="form-control" id="message" aria-describedby="emailHelp" placeholder="Your message...">
+              </div>
+              <div class="input-group-append">
+                <span class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="to-user" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    To
+                  </button>
+                  <div id="dropdown-to" class="dropdown-menu" aria-labelledby="to-user">
+
+                  </div>
                 </span>
-                <span class="icon has-text-warning">
-                  <i class="fas fa-exclamation-triangle fa-lg"></i>
-                </span>
-                <span class="icon has-text-danger">
-                  <i class="fas fa-ban"></i>
-                </span>
+                <div class="input-group-prepend">
+                  <div id="all-users" class="input-group-text form-check">
+                    <input type="checkbox" id="select-all-users" aria-label="Checkbox for following text input">
+                    <span class="pl-2">Select All</span>
+                  </div>  
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+          <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <ul id="message-list" class="m-3 p-3">
+        </ul>
+        <!-- <button id="next" class="btn btn-dark btn-block">Next</button> -->
+
       </div>
     </div>
-    <script src="app.js"></script>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>
