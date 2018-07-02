@@ -17,9 +17,20 @@ const messageField = document.getElementById('message')
 
 submit.addEventListener('click', function(e) {
   let message = messageField.value
-  let from = fromUser.textContent.toLocaleLowerCase()
-  let to = toUser.textContent.toLocaleLowerCase()
-  console.log(from, to)
+  let from = fromUser.textContent.toLowerCase().trim()
+  let to = toUser.textContent.toLowerCase().trim()
+  if(from === 'from') {
+    console.log('from user not selected')
+  }
+  if(to === 'to') {
+    console.log('to user not selected')
+  }
+  if(selectAllUsers.checked) {
+    console.log('selectAllUsers checked')
+  } else {
+//
+  }
+  // console.log(from, to)
   chatroom.send(message, eval(from), eval(to))
   // sendMessage()
   // chatroom.send(message, window[fromUser.textContent], jeff)
