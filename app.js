@@ -86,27 +86,32 @@ function clearMessage() {
 
 const UserES5 = function(name) {
   this.name = name
-  this.chatroom = null
+  this.chatroom = null // no current chatroom by default
 }
 
 UserES5.prototype = {
   send: function(message, to) {
     this.chatroom.send(message, this, to)
+    // this = from user
   },
   receive: function(message, from) {
     console.log(`From ${from.name} to ${this.name}: ${message}`)
+    // this = to user
     messageList.innerHTML += `
     <li class="list-group-item">From ${from.name} to ${this.name}: ${message}</li>`
   }
 }
+
+// the chatroom is the mediator object, the users are colleagues
 
 const ChatRoom = function() {
   let users = {} // list of users
 
   return {
     register: function(user) {
+      // colleagues have to register with the mediator
       users[user.name] = user
-      user.chatroom = this
+      user.chatroom = this // set to current chatroom
       let dropdownItem = document.createElement('li')
       dropdownItem.className = 'dropdown-item'
       dropdownItem.textContent = user.name
